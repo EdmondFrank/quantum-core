@@ -100,6 +100,7 @@ defmodule Quantum.Mixfile do
 
   defp deps do
     [
+      {:horde, "~> 0.9"},
       {:crontab, "~> 1.1"},
       {:gen_stage, "~> 0.14 or ~> 1.0"},
       {:telemetry, "~> 0.4.3 or ~> 1.0"},

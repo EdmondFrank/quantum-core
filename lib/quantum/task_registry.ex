@@ -5,11 +5,12 @@ defmodule Quantum.TaskRegistry do
 
   alias __MODULE__.StartOpts
   alias Quantum.Job
+  alias Horde.Registry
 
   # Start the registry
   @spec start_link(StartOpts.t()) :: GenServer.on_start()
   def start_link(%StartOpts{name: name, listeners: listeners}) do
-    [keys: :unique, name: name, listeners: listeners]
+    [keys: :unique, name: name, listeners: listeners, members: :auto]
     |> Registry.start_link()
     |> case do
       {:ok, pid} ->
